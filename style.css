@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-size: 62.5%;
+    font-family: 'Mulish', sans-serif;
+
+    --color-base-white: hsl(0, 0%, 100%);
+    --color-base-blue: hsl(195, 46%, 40%, 1);
+    --color-base-lightblue: hsla(196, 100%, 98%, 1);
+    --color-base-gray: hsl(240, 6%, 13%, 1);
+}
+
+body {
+
+    background-color: var(--color-base-white);
+    color: var(--color-base-gray);
+
+    min-width: 32rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.app {
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    background-color: var(--color-base-blue);
+
+    display: flex;
+    justify-content: center;
+    padding: 1.2rem 2.8rem;
+    gap: 2.6rem;
+}
+
+header img {
+    background-color: var(--color-base-white);
+    border-radius: 50%;
+}
+
+header input {
+    width: 108.3rem;
+    padding: 1.2rem 1.4rem;
+}
+
+
+button {
+    background-color: var(--color-base-blue);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    width: 1200px;
+    
+}
+
+main h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 3.9rem;
+
+    margin-top: 3.1rem;
+}
+
+.sidebar {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 3.2rem;
+
+    margin: 3.4rem 2.4rem;
+}
+
+
+.sidebar h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    gap: 1.6rem;
+}
+
+.item h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: .13rem;
+}
+
+.item p {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.item img {
+    width: 15rem;
+    height: 8.4rem;
+
+    border-radius: .5rem;
+}
+
+
+footer {
+    background-color: var(--color-base-blue);
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-base-white);
+
+    display: flex;
+    justify-content: center;
+    height: 6.4rem;
+    width: 43rem;
+    align-items: center;
+}
+
+@media (min-width: 1120px) {
+    #app {
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "main main sidebar"
+    "footer footer footer";
+
+    }
+
+    #app header {
+        grid-area: header;
+    }
+
+    #app main {
+        grid-area: main;
+    }
+
+    #app sidebar {
+        grid-area: sidebar;
+    }
+
+    #app footer {
+        grid-area: footer;
+    }
+}
