@@ -1,158 +1,348 @@
+/* Zerando o CSS */
 * {
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 
-    -webkit-font-smoothing: antialiased;
+    -webkit-text-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
     font-size: 62.5%;
-    font-family: 'Mulish', sans-serif;
 
+    --ff-primary:'Mulish', sans-serif;
+
+    --color-base-blue: hsla(195, 46%, 40%);
     --color-base-white: hsl(0, 0%, 100%);
-    --color-base-blue: hsl(195, 46%, 40%, 1);
-    --color-base-lightblue: hsla(196, 100%, 98%, 1);
-    --color-base-gray: hsl(240, 6%, 13%, 1);
+    --color-base-grey800: hsla(240, 6%, 13%);
+    --color-base-grey900: hsla(240, 6%, 8%);
+    --color-base-input: hsla(0, 0%, 100%, 0.2);
+
 }
 
-body {
 
-    background-color: var(--color-base-white);
-    color: var(--color-base-gray);
-
-    min-width: 32rem;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.app {
-    width: 100%;
-    margin: 0 auto;
-}
-
-header {
-    color: white;
-    font-size: 1.6rem;
-    font-weight: 600;
-
+nav {
     background-color: var(--color-base-blue);
 
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    gap: 2.5rem;
+
+    height: 100%;
+
     padding: 1.2rem 2.8rem;
-    gap: 2.6rem;
-}
 
-header img {
-    background-color: var(--color-base-white);
-    border-radius: 50%;
-}
-
-header input {
-    width: 108.3rem;
-    padding: 1.2rem 1.4rem;
-}
-
-
-button {
-    background-color: var(--color-base-blue);
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-
-    width: 1200px;
     
 }
 
-main h1 {
-    font-size: 2.4rem;
-    font-weight: 700;
-    line-height: 3.9rem;
+.input-wrapper label {
+    width: 1px;
+    height: 1px;
 
-    margin-top: 3.1rem;
+    position:absolute;
+
+    overflow: hidden;
 }
 
-.sidebar {
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    gap: 3.2rem;
+.input-wrapper input {
+    font-family: var(--ff-primary);
+    font-weight: 600;
+    color: rgb(230, 228, 228);
+    padding: 1.2rem 1.5rem;
 
-    margin: 3.4rem 2.4rem;
+    background-color: var(--color-base-input);
+
+    border: none;
+    border-radius: .4rem;
+
+    width: 100%;
+    height: auto;
+    
+    font-size: 1.2rem;
 }
 
-
-.sidebar h1 {
-    font-size: 2.4rem;
-    font-weight: 700;
+nav .input-wrapper {
+    flex:1;
 }
 
-.item {
+nav img {
+    background-color: var(--color-base-white);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    padding: .5rem;
+}
+
+nav img:hover {
+    border: 2px solid hsl(203, 24%, 50%);
+}
+
+nav .avatar {
+    padding: 0;
+}
+
+.container {
+    --delay: 0.2s;
+    animation: fadein 1s ease var(--delay) backwards;
+}
+
+.container .cat-img {
+    width: 100%;
+}
+.frame {
+    margin: 2rem 2.6rem 2rem 2.2rem;
+}
+
+.frame title {
     display: flex;
-    flex-direction: row;
-    gap: 1.6rem;
+    flex-direction: column;
 }
 
-.item h2 {
+.frame h1 {
     font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: .13rem;
+
+    line-height: 160%;
+
+    margin-bottom: 0.8rem;
 }
 
-.item p {
-    font-size: 1.4rem;
+.frame .like-dislike {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+
+    margin-bottom: 2rem;
+}
+
+.frame p {
+    color: var(--color-base-grey900);
+
+    font-size: 1.2rem;
     font-weight: 400;
+
+    line-height: 2rem;
+
 }
 
-.item img {
-    width: 15rem;
-    height: 8.4rem;
+button {
+    background-color: var(--color-base-blue);
 
-    border-radius: .5rem;
+    padding: .8rem;
+    align-items: center;
+    gap: 1rem;
+
+    border-radius: 50%;
+
+    border: none;
+
+    animation: wiggle 4s linear infinite;
 }
 
+button:hover {
+    background-color: rgb(31, 85, 102);
+}
+
+aside {
+    margin: .2rem 2.6rem 3.4rem 2.2rem;
+}
+
+aside h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    margin-bottom: 2.4rem;
+}
 
 footer {
     background-color: var(--color-base-blue);
-    font-size: 1.6rem;
+
+    font-size: 1rem;
     font-weight: 600;
     text-align: center;
+
     color: var(--color-base-white);
 
     display: flex;
     justify-content: center;
-    height: 6.4rem;
-    width: 43rem;
+    height: 5rem;
+    width: auto;
     align-items: center;
 }
 
-@media (min-width: 1120px) {
-    #app {
+/* Configurando o grid, usei grid-template-area pq foi pedido no desafio */
+#app {
+    display: flex;
+    flex-direction: column;
+    
+    margin: 0px auto;
+    
+    background-color: var(--color-base-white);
+    
+    font-family: var(--ff-primary);
+} 
+
+.artigos.relacionados {
     display: grid;
-    grid-template-areas: 
-    "header header header"
-    "main main sidebar"
-    "footer footer footer";
+    grid-template-columns: 15rem 21rem;
+}
 
+.item {
+    display: grid;
+    grid-template: 
+    "A B"
+    "A C";
+
+
+    column-gap: 1.6rem;
+    row-gap: 3.2rem;
+
+    align-items: start;
+
+    --delay: 0.2s;
+    animation: fadein 3s ease-in var(--delay) backwards;   
+}
+
+.item:hover {
+    background-color: hsl(0, 7%, 94%);
+    border-radius: .5rem;
+}
+
+.item h2 {
+    font-size: 1.4rem;
+    color: var(--color-base-grey800);
+
+    grid-area: B;
+
+    /* margin-top: 1rem; */
+}
+
+.item p {
+    grid-area: C;
+
+    margin-top: 1rem;
+
+    font-size: 1.2rem;
+    font-weight: 400;
+
+    color: var(--color-base-grey900);
+    
+    max-height: 5.5rem;
+    overflow:visible;
+}
+
+.item img {
+    /* grid-area: A; */
+
+    width: 100%;
+    height: 100%;
+
+    aspect-ratio: 16/9;
+    object-fit: contain;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0%;
     }
 
-    #app header {
+    to {
+        opacity: 100%;
+    }
+    
+}
+@keyframes wiggle {
+0%, 7% {
+    transform: rotateZ(0);
+}
+15% {
+    transform: rotateZ(-20deg);
+}
+20% {
+    transform: rotateZ(20deg);
+}
+25% {
+    transform: rotateZ(-20deg);
+}
+30% {
+    transform: rotateZ(6deg);
+}
+35% {
+    transform: rotateZ(-4deg);
+}
+40%, 100% {
+    transform: rotateZ(0);
+}
+}
+
+@media (min-width: 768px) {
+    #app {
+        display: grid;
+        grid-template-areas:
+        "header header header"
+        "main main sidebar"
+        "footer footer footer";
+
+        grid-template-columns: 1fr 1fr 1fr;
+
+        max-width: 100vw;
+
+        overflow-y: hidden;
+    }
+
+    header {
         grid-area: header;
+
+        margin-bottom: 4.4rem;
+
+        background-color: var(--color-base-blue);
+        
+        width: 100%;
     }
 
-    #app main {
+    nav {
+        margin-inline: 8rem;
+    }
+
+    .title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    main {
         grid-area: main;
-    }
 
-    #app sidebar {
+        margin-left: 10.9rem;
+        
+        max-width: 80rem;
+    }
+    
+    .sidebar {
         grid-area: sidebar;
+
+        max-width: 38.4rem;
     }
 
-    #app footer {
+    .frame {
+        width: 100%;
+
+        margin-left: 0;
+    }
+
+    .container {
+        justify-content: start;
+    }
+
+    aside {
+        margin-top: 0;
+    }
+
+    footer {
         grid-area: footer;
+
+        font-size: 12px;
     }
 }
